@@ -75,4 +75,4 @@ export default {
       handler: '~/server/api.js',
     },
   ],
-}
+};
