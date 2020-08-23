@@ -44,7 +44,7 @@ export default {
   },
 
   async fetch(ctx) {
-    console.log(await ctx.$axios.get('toto'));
+    console.log(await ctx.$axios.get('/sessions/c57635bc-3ca5-45e2-a2fc-af730b3311f3/lapTimes'));
   },
 };
 </script>
