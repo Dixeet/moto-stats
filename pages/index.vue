@@ -44,7 +44,10 @@ export default {
   },
 
   async fetch(ctx) {
-    console.log(await ctx.$axios.get('/sessions/c57635bc-3ca5-45e2-a2fc-af730b3311f3/lapTimes'));
+    console.log(await ctx.$api.motogp.race().description());
+    console.log(await ctx.$api.motogp.race().lastRace().description());
+    console.log(await ctx.$api.motogp.race().sessions());
+    console.log(await ctx.$api.motogp.race().lastRace().sessions());
   },
 };
 </script>
