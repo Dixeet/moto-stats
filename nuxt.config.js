@@ -29,12 +29,12 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [{ src: '~assets/css/main.scss', lang: 'scss' }],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ['~/api'],
+  plugins: ['~/api', '~/plugins/init'],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -64,6 +64,7 @@ export default {
   axios: {
     prefix: '/api',
   },
+  buefy: { css: false },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/

@@ -1,13 +1,16 @@
 export default (ctx) => {
   const currentSeason = () => {
-    return ctx.$context.currentSeason.season.uuid;
+    return ctx.store.state.currentSeason.season.uuid;
   };
   const currentRace = () => {
-    return ctx.$context.currentRace.event.uuid;
+    return ctx.store.state.currentRace.event.uuid;
+  };
+  const currentSerie = () => {
+    return ctx.store.state.selected.serie.uuid;
   };
   return {
-    seasons() {
-      return ctx.$axios.$get('/series/motogp/seasons');
+    seasons(serie = currentSerie()) {
+      return ctx.$axios.$get(`/series/${serie}/seasons`);
     },
     season(uuid = currentSeason()) {
       return {
@@ -32,7 +35,7 @@ export default (ctx) => {
       return {
         lastRace() {
           // eslint-disable-next-line no-param-reassign
-          uuid = ctx.$context.lastRace.event.uuid;
+          uuid = ctx.store.state.lastRace.event.uuid;
           return this;
         },
         description() {
